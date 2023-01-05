@@ -5,7 +5,7 @@ const searchWithCallback = (callback) => {
 
   const doSearch = (dir) => {
     dir.content.forEach((file) => {
-      if (file.dir) {
+      if (file.isDir) {
         const folder = file;
         doSearch(folder);
       }

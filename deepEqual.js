@@ -9,7 +9,7 @@ const deepEqual = (value1, value2) => {
 };
 
 const isPrimaryType = (value) =>
-  ["string", "number", "boolean"].includes(typeof value);
+  ["string", "number", "boolean"].includes(typeof value) || value == undefined;
 
 const isArrayType = (value) => Array.isArray(value);
 
