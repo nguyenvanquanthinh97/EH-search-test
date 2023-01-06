@@ -1,4 +1,8 @@
-const { searchWithCallback, searchBySizeOrExtension } = require("./search");
+const {
+  searchWithCallback,
+  searchBySizeOrExtension,
+  searchFilenameByRegex,
+} = require("./search");
 const deepEqual = require("./deepEqual");
 
 const inputCase01 = ["lg", 1024, "js"];
@@ -40,5 +44,17 @@ console.log(
   deepEqual(
     searchWithCallback(searchBySizeOrExtension(...inputCase03)),
     expectedOutputCase03
+  )
+);
+
+const inputCase04 = /.*03/;
+const expectedOutputCase04 = [
+  { filename: "test03.db", size: 2048, extension: "db" },
+];
+console.log(
+  "DEBUG: check searchFilenameByRegex",
+  deepEqual(
+    searchWithCallback(searchFilenameByRegex(inputCase04)),
+    expectedOutputCase04
   )
 );
